@@ -12,7 +12,7 @@
     background-image: linear-gradient(
             /* Direction of the gradient (just one can be included too) */
             to right bottom,
-            rgba(abstracts.$color-primary, 0.8),
+            rgba(abstracts.$color-primary-light, 0.8),
             rgba(abstracts.$color-primary-dark, 0.8)),
         url('../img/hero.jpg');
     /* Always try to fit the width of the element (container?) */
@@ -24,6 +24,11 @@
     background-position: top;
 
     /* Polygon in which the image will still be visible */
+    // First webkit because is a vendor
+    -webkit-clip-path: polygon(0 0,
+            100% 0,
+            100% 75vh,
+            0 100%);
     clip-path: polygon(
             /* DOCS Tool for polygons https://bennettfeely.com/clippy/ */
             /* List of x y coordinates following the specified order */
