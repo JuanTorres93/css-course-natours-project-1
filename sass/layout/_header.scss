@@ -1,0 +1,60 @@
+@use "../abstracts";
+
+.header {
+    /* To act as reference for .logo-box */
+    position: relative;
+    /* 95% of the viewport height */
+    height: 95vh;
+    /* 
+    Multiple background images can be specified. The left-most
+    is the top layer, and the right-most is the bottom layer.
+    */
+    background-image: linear-gradient(
+            /* Direction of the gradient (just one can be included too) */
+            to right bottom,
+            rgba(abstracts.$color-primary, 0.8),
+            rgba(abstracts.$color-primary-dark, 0.8)),
+        url('../img/hero.jpg');
+    /* Always try to fit the width of the element (container?) */
+    background-size: cover;
+    /* 
+    The top of the image always stays at the top of the container 
+    (The image is cropped in a way such as the top is always visible)
+    */
+    background-position: top;
+
+    /* Polygon in which the image will still be visible */
+    clip-path: polygon(
+            /* DOCS Tool for polygons https://bennettfeely.com/clippy/ */
+            /* List of x y coordinates following the specified order */
+            0 0,
+            100% 0,
+            100% 75vh,
+            0 100%);
+
+    &__logo-box {
+        position: absolute;
+        /* 
+        The reference point for top and left is the parent
+        element that has a position: relative, in this case, .header
+        */
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        /* (Moves the top left point to the middle of the container) */
+        /* Units are relative to parent */
+        top: 40%;
+        left: 50%;
+        /* (Moves container in x and y) */
+        /* Units are relative to element */
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}

@@ -1,0 +1,126 @@
+@use "../abstracts";
+
+.btn {
+
+    /* 
+    :link is an special selector for when the element acts
+    as a link (an anchor tag).
+    :visited is when the user has clicked the button once and
+    then he sees it again
+    */
+    &:link,
+    &:visited {
+        font-size: abstracts.$default-font-size;
+        text-transform: uppercase;
+        text-decoration: none;
+        /* 
+        inline-block para cuando se quiera trabajar bien con
+        paddings, widths, heights, etc.
+        inline-blocks are treated like it was text
+        */
+        display: inline-block;
+        padding: 1.5rem 4rem;
+        border-radius: 10rem;
+        /* 
+        transition: properties to be animated and duration
+        transition is specified only in the initial state
+        */
+        transition: all .2s;
+
+        /* Act as a reference for .btn::after */
+        position: relative;
+    }
+
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba(abstracts.$color-black, .2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    /* 
+    :active is an special selector for when 
+    the element is clicked
+    */
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba(abstracts.$color-black, .2);
+    }
+
+    &--white {
+        background-color: abstracts.$color-white;
+        color: abstracts.$color-grey-dark;
+
+        &::after {
+            background-color: abstracts.$color-white;
+        }
+    }
+
+    /*  
+    pseudo-elements acts as if they are virtual elements existing
+    on the html and can be styled
+    */
+    &::after {
+        /* In an after pseudo-element, ALWAYS is necessary to specify 
+        the content and display properties. Otherwise it will not be displayed
+        */
+        content: "";
+        /* 
+        In this case, inline-block because the btn class is an
+        inline-block and we want to mimic it
+        */
+        display: inline-block;
+        /* 
+        ::after is treated like a child element. So take up all
+        height and width of the parent element 
+        */
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+
+        /* Put the pseudo-element behind the actual button */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom 1s ease-in .75s;
+        /* Apply the styling of the 0% before the animation starts */
+        animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+
+    &:link,
+    &:visited {
+        font-size: abstracts.$default-font-size;
+        color: abstracts.$color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid abstracts.$color-primary;
+        padding: 3px;
+
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-color: abstracts.$color-primary;
+        color: abstracts.$color-white;
+        box-shadow: 0 1rem 2rem rgba(abstracts.$color-black, .2);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba(abstracts.$color-black, .2);
+        transform: translateY(0);
+    }
+}

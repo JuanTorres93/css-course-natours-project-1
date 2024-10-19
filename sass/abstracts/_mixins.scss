@@ -1,0 +1,10 @@
+@mixin clearfix {
+
+    // Clear floats
+    &::after {
+        content: "";
+        display: table;
+        // Use either if it is float: left or float: right
+        clear: both;
+    }
+}

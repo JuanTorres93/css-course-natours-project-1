@@ -1,0 +1,55 @@
+/* @keyframes and name of the animation */
+/* Then specify what is wanted to happen in each
+moment of the animation */
+@keyframes moveInLeft {
+    /* For browser performance is always best to animate,
+       at most, 2 properties, specifically opacity and transform.
+       However, with transform, can be accomplish a LOT of stuff */
+
+    /* 0% Is BEFORE the animation actually starts */
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    /* 100% Is when the animation finishes */
+    80% {
+        opacity: 1;
+        transform: translate(1rem);
+    }
+
+    /* 100% Is when the animation finishes */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translate(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
