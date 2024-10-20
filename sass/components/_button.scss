@@ -60,6 +60,15 @@
         }
     }
 
+    &--green {
+        background-color: abstracts.$color-primary;
+        color: abstracts.$color-white;
+
+        &::after {
+            background-color: abstracts.$color-primary;
+        }
+    }
+
     /*  
     pseudo-elements acts as if they are virtual elements existing
     on the html and can be styled
