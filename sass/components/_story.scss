@@ -1,0 +1,47 @@
+@use "../abstracts" as *;
+
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 6rem;
+    // To maitain content inside the box due to the __shape
+    // X translation
+    padding-left: 9rem;
+    font-size: $default-font-size;
+
+    transform: skewX(-12deg);
+
+    &>* {
+        transform: skewX(12deg);
+    }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        // Rest of the elements float around this shape
+        float: left;
+
+        // For shape-outside to work, the element must be
+        // a float and have dimensions specified
+        // shape-outside defines where the content floats around
+        // the element
+        // Radius at x y coordinates
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+
+        // Best way to and spacing to floats is to use
+        // transform: translate instead of margin
+        transform: translateX(-3rem) skewX(12deg);
+    }
+
+    &__img {
+        height: 100%;
+    }
+
+    &__text {}
+}
