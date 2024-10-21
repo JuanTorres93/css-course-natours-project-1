@@ -42,6 +42,8 @@
         /* 
         The reference point for top and left is the parent
         element that has a position: relative, in this case, .header
+        (If the parent has a position: absolute, also would work, it jus needs
+        to be specified)
         */
         top: 4rem;
         left: 4rem;

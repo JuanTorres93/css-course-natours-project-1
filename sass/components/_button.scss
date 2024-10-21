@@ -8,6 +8,7 @@
     :visited is when the user has clicked the button once and
     then he sees it again
     */
+    &,
     &:link,
     &:visited {
         font-size: abstracts.$default-font-size;
@@ -29,6 +30,11 @@
 
         /* Act as a reference for .btn::after */
         position: relative;
+
+
+        // Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
 
 
@@ -46,7 +52,8 @@
     :active is an special selector for when 
     the element is clicked
     */
-    &:active {
+    &:active,
+    &:focus {
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba(abstracts.$color-black, .2);
     }
