@@ -11,7 +11,6 @@ body {
     /* 1.7 time larger than the default value */
     line-height: 1.7;
     color: abstracts.$color-grey-dark;
-    padding: 3rem;
 }
 
 .heading-primary {
@@ -28,7 +27,11 @@ body {
         display: block;
         font-size: 6rem;
         font-weight: 400;
-        letter-spacing: 3.5rem;
+
+        @include abstracts.respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
 
         /* Apply animation. MANDATORY animation-name and animation-duration */
         animation-name: moveInLeft;
@@ -44,7 +47,12 @@ body {
         display: block;
         font-size: 2rem;
         font-weight: 700;
-        letter-spacing: 1.75px;
+        letter-spacing: 1.75rem;
+
+        @include abstracts.respond(phone) {
+            letter-spacing: .5rem;
+            // font-size: 5rem;
+        }
 
         /* animation can be used as summary of the 3 properties used in
            heading-primary-main
@@ -66,6 +74,14 @@ body {
     color: transparent;
     letter-spacing: 2px;
     transition: all .2s;
+
+    @include abstracts.respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include abstracts.respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         transform: skewY(2deg) skewX(15deg) scale(1.1);

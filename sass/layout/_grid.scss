@@ -7,6 +7,15 @@
 
     &:not(:last-child) {
         margin-bottom: abstracts.$gutter-vertical;
+
+        @include abstracts.respond(tab-port) {
+            margin-bottom: abstracts.$gutter-vertical-small;
+        }
+    }
+
+    @include abstracts.respond(tab-port) {
+        max-width: 50rem;
+        padding: 0 3rem;
     }
 
     // Attribute selector
@@ -15,6 +24,17 @@
 
         &:not(:last-child) {
             margin-right: abstracts.$gutter-horizontal;
+
+            @include abstracts.respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: abstracts.$gutter-vertical-small;
+            }
+        }
+
+        @include abstracts.respond(tab-port) {
+            // Important to override the width
+            // of classes below
+            width: 100% !important;
         }
     }
 

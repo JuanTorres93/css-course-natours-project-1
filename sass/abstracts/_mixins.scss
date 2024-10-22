@@ -23,13 +23,20 @@
 900 - 1200px: Tablet landscape
 {1200 - 1800px}: Desktop. OUR NORMAL STYLES APPLY HERE
 1800px +: Big desktop
-*/
 
-// breakpoint argument choices
-// - phone
-// - tab-port
-// - tab-land
-// - big-desktop
+breakpoint argument choices
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: to start responsiveness
+1. base + typography
+2. general layout + grid
+3. page layout
+4. components
+
+*/
 @mixin respond($breakpoint) {
 
     // ems are the best unit for media queries, since
