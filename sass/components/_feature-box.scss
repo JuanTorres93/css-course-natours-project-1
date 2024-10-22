@@ -9,6 +9,11 @@
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
     transition: transform .3s;
 
+
+    @include respond(tab-port) {
+        padding: 2rem;
+    }
+
     &__icon {
         display: inline-block;
         // If not included, icon is cropped
@@ -20,6 +25,10 @@
                 $color-primary-dark);
         background-clip: text;
         color: transparent;
+
+        @include respond(tab-port) {
+            margin-bottom: 0;
+        }
     }
 
     &:hover {
