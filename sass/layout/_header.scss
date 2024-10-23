@@ -14,7 +14,7 @@
             to right bottom,
             rgba(abstracts.$color-primary-light, 0.8),
             rgba(abstracts.$color-primary-dark, 0.8)),
-        url('../img/hero.jpg');
+        url('../img/hero-small.jpg');
     /* Always try to fit the width of the element (container?) */
     background-size: cover;
     /* 
@@ -36,6 +36,19 @@
             100% 0,
             100% 75vh,
             0 100%);
+
+    // Apple ¿redmi? screen, it's usually used as reference
+    // High resolution screen
+    // The , acts as an OR
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (min-width: 125em) {
+        background-image: linear-gradient(
+                /* Direction of the gradient (just one can be included too) */
+                to right bottom,
+                rgba(abstracts.$color-secondary-light, 0.8),
+                rgba(abstracts.$color-secondary-dark, 0.8)),
+            url('../img/hero.jpg');
+    }
 
     @include abstracts.respond(phone) {
         -webkit-clip-path: polygon(0 0,
