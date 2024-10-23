@@ -401,7 +401,20 @@
 
     <footer class="footer">
         <div class="footer__logo-box">
-            <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+            <!-- DOC responsive image in html. Art direction use case -->
+            <picture class="footer__logo">
+                <!-- Always 1 or more sources (for different media queries) -->
+                <!-- media is a css media query -->
+                <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                    media="(max-width: 37.5em)">
+                <!-- Always at least one img, which will be the fallback -->
+                <!-- Here, in addition, is implemented density switching inside the art direction -->
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo">
+            </picture>
+            <!-- DOC responsive image in html. Density switching use case -->
+            <!-- route and density descriptor -->
+            <!-- For high res screens (2x) a bigger version of the image is used -->
+            <!-- <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo"> -->
         </div>
 
         <div class="row">
