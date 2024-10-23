@@ -101,4 +101,74 @@
             color: $color-primary;
         }
     }
+
+
+    @include respond(tab-land) {
+
+        &__content {
+            // For children table-cell to work
+            display: block;
+
+            overflow: hidden;
+        }
+
+        &__left {
+            width: 100%;
+            float: left;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+            overflow: hidden;
+        }
+
+        &__right {
+            width: 80%;
+            text-align: center;
+        }
+
+        &__img {
+            display: inline-block;
+            max-width: 49.5%;
+            margin: 0;
+            padding: 0;
+            transform: scale(1.1);
+        }
+
+        &__close {
+            position: relative;
+            z-index: 10;
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 4rem;
+                width: 4rem;
+                background-color: rgba($color-white, 1);
+                border-radius: 50%;
+                z-index: -1;
+
+                top: 50%;
+                left: 50%;
+
+                transform: translate(-50%, -47%);
+            }
+        }
+    }
+
+
+    @include respond(phone) {
+
+
+        &__text {
+            column-count: 1;
+        }
+
+        &__content {
+            @include absCenter;
+            width: 90%;
+        }
+    }
+
 }
