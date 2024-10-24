@@ -48,3 +48,9 @@ body {
         padding: 0;
     }
 }
+
+// Style of selected text, images, etc.
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
