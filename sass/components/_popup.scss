@@ -6,12 +6,23 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba($color-black, .8);
     z-index: 9999;
 
     opacity: 0;
     visibility: hidden;
     transition: all .3s;
+
+    background-color: rgba($color-black, .8);
+
+    // DOCS Feature query
+    // Check if the browser supports the property, its value
+    // must also be included
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        // backdrop-filter applies filter to the background of the selected element
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .3);
+    }
 
     &__content {
         @include absCenter;
@@ -159,8 +170,6 @@
 
 
     @include respond(phone) {
-
-
         &__text {
             column-count: 1;
         }

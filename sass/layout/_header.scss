@@ -3,8 +3,8 @@
 .header {
     /* To act as reference for .logo-box */
     position: relative;
-    /* 95% of the viewport height */
-    height: 95vh;
+    /* 85% of the viewport height */
+    height: 85vh;
     /* 
     Multiple background images can be specified. The left-most
     is the top layer, and the right-most is the bottom layer.
@@ -23,30 +23,39 @@
     */
     background-position: top;
 
-    /* Polygon in which the image will still be visible */
-    // First webkit because is a vendor
-    -webkit-clip-path: polygon(0 0,
-            100% 0,
-            100% 75vh,
-            0 100%);
-    clip-path: polygon(
-            /* DOCS Tool for polygons https://bennettfeely.com/clippy/ */
-            /* List of x y coordinates following the specified order */
-            0 0,
-            100% 0,
-            100% 75vh,
-            0 100%);
+    // Actual values are not necessary for polygon funtion
+    // For browsers that support clip-path
+    @supports (-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0)) {
+        height: 95vh;
+
+        /* Polygon in which the image will still be visible */
+        // First webkit because is a vendor
+        -webkit-clip-path: polygon(0 0,
+                100% 0,
+                100% 75vh,
+                0 100%);
+        clip-path: polygon(
+                /* DOCS Tool for polygons https://bennettfeely.com/clippy/ */
+                /* List of x y coordinates following the specified order */
+                0 0,
+                100% 0,
+                100% 75vh,
+                0 100%);
+
+    }
 
     // Apple ¿redmi? screen, it's usually used as reference
     // High resolution screen
     // The , acts as an OR
     @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    // for safari
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
     (min-width: 125em) {
         background-image: linear-gradient(
                 /* Direction of the gradient (just one can be included too) */
                 to right bottom,
-                rgba(abstracts.$color-secondary-light, 0.8),
-                rgba(abstracts.$color-secondary-dark, 0.8)),
+                rgba(abstracts.$color-primary-light, 0.8),
+                rgba(abstracts.$color-primary-dark, 0.8)),
             url('../img/hero.jpg');
     }
 

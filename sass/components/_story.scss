@@ -37,16 +37,24 @@
         height: 15rem;
         // Rest of the elements float around this shape
         float: left;
+        overflow: hidden;
 
-        // For shape-outside to work, the element must be
-        // a float and have dimensions specified
-        // shape-outside defines where the content floats around
-        // the element
-        // Radius at x y coordinates
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%);
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
+        border-radius: 50%;
+
+        @supports (-webkit-clip-path: circle(0 at 0 0)) or (clip-path: circle(0 at 0 0)) {
+            // For shape-outside to work, the element must be
+            // a float and have dimensions specified
+            // shape-outside defines where the content floats around
+            // the element
+            // Radius at x y coordinates
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+
+            border-radius: none;
+        }
 
         // Best way to and spacing to floats is to use
         // transform: translate instead of margin
