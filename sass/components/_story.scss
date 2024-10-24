@@ -41,6 +41,14 @@
 
         border-radius: 50%;
 
+        // Best way to and spacing to floats is to use
+        // transform: translate instead of margin
+        transform: translateX(-3rem) skewX(12deg);
+
+        backface-visibility: hidden;
+        position: relative;
+
+
         @supports (-webkit-clip-path: circle(0 at 0 0)) or (clip-path: circle(0 at 0 0)) {
             // For shape-outside to work, the element must be
             // a float and have dimensions specified
@@ -55,14 +63,6 @@
 
             border-radius: none;
         }
-
-        // Best way to and spacing to floats is to use
-        // transform: translate instead of margin
-        transform: translateX(-3rem) skewX(12deg);
-
-        backface-visibility: hidden;
-        position: relative;
-
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0);
